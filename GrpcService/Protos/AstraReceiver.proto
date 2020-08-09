@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+service AstraReceiver {
+rpc GetAstraReciever(AstraReceiverRegister) returns (AstraReceiverObject);
+
+}
+
+message AstraReceiverRegister {
+	int32 messageId = 1;
+}
+
+message AstraReceiverObject {
+	string RecieverName =1;
+}
