@@ -10,6 +10,8 @@ namespace GrpcClientTest
         {
 
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
+
+            // var channel1 = new System.Threading.Channels.Channel("", Grpc.Core.ChannelCredentials.Insecure);
             var client = new Greeter.GreeterClient(channel);
             HelloReply result = client.SayHello(new HelloRequest { Name = "Siddharth" });
             var client2 = new AstraReceiver.AstraReceiverClient(channel);
@@ -17,6 +19,7 @@ namespace GrpcClientTest
             {
                 MessageId = 11017
             });
+            //  channel.ShutdownAsync().Wait();
 
             Console.WriteLine($"{result.Message}!");
             Console.WriteLine($"{result2.RecieverName}");

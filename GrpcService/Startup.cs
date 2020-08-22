@@ -21,6 +21,7 @@ namespace GrpcService
         {
             services.AddGrpc();
             services.AddSingleton<IStandardMessage, Message>();
+            services.AddSingleton<ITradeSession, TBLSession>();
             services.AddSingleton<IAstraReciever, AstraRecieverService>(x =>
             {
                 var logger = x.GetRequiredService<ILogger<AstraRecieverService>>();
